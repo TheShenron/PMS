@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./logo.png">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css"
+        integrity="sha512-YzwGgFdO1NQw1CZkPoGyRkEnUTxPSbGWXvGiXrWk8IeSqdyci0dEDYdLLjMxq1zCoU0QBa4kHAFiRhUL3z2bow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Masai Password System</title>
+</head>
+
+<body>
+
+    <!-- HTML start hare -->
+    <div class="mainContainer shadow">
+
+
+        <!-- mav start hare -->
+        <nav class="navbar bg-dark py-4">
+            <div class="container">
+                <div class="d-flex p_m_title">
+                    <img src="./logo.png" alt="logo" class="logoimage">
+                    <h4 class="my-0"> Masai Password System</h4>
+                </div>
+            </div>
+        </nav>
+        <!-- mav ends hare -->
+
+
+
+
+
+
+        <!-- onclick popup start hare -->
+
+        <div class="popUp text-dark pb-3 px-3 border border-muted rounded shadow">
+            <div class="d-flex"> 
+                <img src="./logo.png" alt="biglogo" class="bi-hypnotize">
+             </div>
+
+
+            <div class="input-group mb-2">
+                <div class="input-group-text bg-warning fw-bold"> New User :</div>
+                <input type="text" class="form-control" id="webLink0" placeholder="Rxg_Gohips">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-text bg-warning fw-bold">Password :</div>
+                <input type="text" class="form-control" id="webPassword0" placeholder="f5fizbo">
+            </div>
+            <div class="Dflex">
+                <button type="button" class="btn btn-outline-danger btn-sm mx-2" onclick="tglaccount()">Already have
+                    Account?</button>
+                <button type="button" class="btn btn-outline-danger btn-sm" onclick="sinlog('0' , 'newuser')">Sign
+                    In</button>
+            </div>
+
+        </div>
+
+
+        <div class="popUp text-dark pb-3 px-3 border border-muted rounded shadow">
+            <div class="d-flex"> 
+                 <img src="./logo.png" alt="biglogo" class="bi-hypnotize">
+            </div>
+
+
+            <div class="input-group mb-2">
+                <div class="input-group-text bg-warning fw-bold"> User :</div>
+                <input type="text" class="form-control" id="webLink1" placeholder="Rxg_Gohips">
+            </div>
+            <div class="input-group mb-2">
+                <div class="input-group-text bg-warning fw-bold">Password :</div>
+                <input type="text" class="form-control" id="webPassword1" placeholder="we45df1d">
+            </div>
+            <div class="Dflex">
+                <button type="button" class="btn btn-outline-danger btn-sm mx-2" onclick="tglaccount()">Make New
+                    Account?</button>
+                <button type="button" class="btn btn-outline-danger btn-sm"
+                    onclick="sinlog('1' , 'olduser')">Login</button>
+            </div>
+
+        </div>
+        <!-- onclick popup ends hare -->
+
+
+        <!-- HTML ends hare -->
+
+
+        <script src="js/login.js"></script>
+
+    </div>
+
+</body>
+
+</html>

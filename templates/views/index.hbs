@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./logo.png">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.2/font/bootstrap-icons.min.css"
+        integrity="sha512-YzwGgFdO1NQw1CZkPoGyRkEnUTxPSbGWXvGiXrWk8IeSqdyci0dEDYdLLjMxq1zCoU0QBa4kHAFiRhUL3z2bow=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+    <title>Masai Password System</title>
+    <script>
+        const UserID = localStorage.getItem("UserID");
+        console.log(UserID);
+        if (UserID == null) {
+            window.location.href = "/";
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- HTML start hare -->
+    <div class="mainContainer shadow position-relative">
+
+
+        <!-- mav start hare -->
+        <nav class="navbar bg-dark py-3">
+            <div class="container">
+                <div class="d-flex p_m_title" onclick="delete_account_icon_togle()">
+                    <img src="./logo.png" alt="logo" class="logoimage">
+                    <h4 class="m-0"> M.P.S</h4>
+                </div>
+                <div>
+                    {{!-- <i class="bi bi-headphones navButton" onclick="togleMusic()"></i> --}}
+                    {{!-- <i class="bi bi-gpu-card navButton mx-2" onclick="toglediv()"></i> --}}
+                    <span class="R"><i class="bi bi-plus-circle navButton" onclick="addItem()"></i></span>
+                    <i class="bi bi-box-arrow-right navButton mx-1" onclick="logout()"></i>
+                    <i class="bi bi-trash navButton popUpDis text-warning mx-2" onclick="deleteAccount()"></i>
+                </div>
+            </div>
+        </nav>
+        <!-- mav ends hare -->
+
+
+
+        <div id="divOne">
+
+
+            <!-- search bar start hare -->
+            <div class="input-group border m-1">
+                <div class="input-group-prepend m-0 p-0">
+                    <span class="input-group-text border-0 rounded-0 bg-white"> <i class="bi bi-search text-muted"></i>
+                    </span>
+                </div>
+                <input type="search" class="form-control border-0 rounded-0 bg-white m-0 Search" placeholder="Search"
+                    aria-label="search" aria-describedby="basic-addon1">
+            </div>
+            <!-- search bar ends hare -->
+
+
+
+
+            <!-- onclick popup start hare -->
+            <div class="popupDisable popUpDis" onclick="addItem()"></div>
+            <div class="popUp text-dark pb-3 px-2 border border-muted rounded popUpDis">
+                <div class="d-flex">
+                    <img src="./logo.png" alt="biglogo" class="bi-hypnotize">
+                </div>
+
+                <div class="input-group mb-2">
+                    <div class="input-group-text">Link :</div>
+                    <input type="text" class="form-control" id="webLink" placeholder="https://getbootstrap.com/">
+                </div>
+                <div class="input-group mb-2">
+                    <div class="input-group-text">Pass :</div>
+                    <input type="text" class="form-control" id="webPassword" placeholder="KzfJ55i7N2GWPW9B">
+                </div>
+                <div class="Dflex">
+                    <button type="button" class="btn btn-outline-danger btn-sm mx-2" onclick="GeneratePass()">Generate
+                        Password</button>
+                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="save()">Save
+                        :)</button>
+                </div>
+
+            </div>
+            <!-- onclick popup ends hare -->
+
+
+
+
+
+            <!-- items section start hare -->
+            <div class="itemContainer">
+                <p class="text-dark text-center w-100 mt-3 fs-5 d-flex flex-column" id="noresult">
+                    <span>“No Results Found”</span>
+                    <span class="text-muted fs-6"> <i class="bi bi-x-octagon-fill fs-4"></i> Delete any item <strong>
+                            'Click
+                            On It' </strong> </span>
+                    <span class="text-muted fs-6">Delete Account “Dubble Click On Logo”</span>
+                </p>
+
+
+            </div>
+            <!-- items section ends hare -->
+
+        </div>
+
+
+
+        <!-- chart html start hare -->
+
+        {{!-- <div id="divTwo" class="text-dark popUpDis ">
+
+
+
+
+            <div class="chart">
+                <h4 class="text-center mt-4"> Today's Fucking Reality</h4>
+                <div class="calendar"> </div>
+
+                <canvas id="myChart2" class="m-auto p-3" style="width:100%;max-width:600px;"></canvas>
+            </div>
+
+            <div class="px-1">
+                <ul class="list-group allLI p-1">
+                    <div class="main_li">
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">DSAP</span> : DSA Practice </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'DSAP')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'DSAP')"></i>
+                            </div>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">DSAL</span> : DSA Learning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'DSAL')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'DSAL')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">ENGR</span> : English Reading </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'ENGR')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'ENGR')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">ENGW</span> : English Writing </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'ENGW')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'ENGW')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">ENGL</span> : English Listning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'ENGL')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'ENGL')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">ENGS</span> : English Speaking </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'ENGS')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'ENGS')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">ENGWT</span> : English Speaking video </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'ENGWT')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'ENGWT')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">TYP</span> : Typing </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'TYP')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'TYP')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">JSL</span> : Java Script Learning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'JSL')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'JSL')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">CSSL</span> : CSS Learning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'CSSL')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'CSSL')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">RECTJS</span> : ReactJS Learning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'RECTJS')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'RECTJS')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">NODEJS</span> : NodeJS Learning </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'NODEJS')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'NODEJS')"></i>
+                            </div>
+                        </li>
+                        <li class=" list-group-item d-flex justify-content-between align-items-center border-0">
+                            <div><span class="text-danger">PROJ</span> : Daily Small Project </div>
+                            <div class="btn m-0 p-0 border-0">
+                                <i class="bi bi-check-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 1 , 'PROJ')"></i>
+                                <i class="bi bi-x-square-fill btn p-0 border-0 mx-1"
+                                    onclick="DoneAssig(event , 0 , 'PROJ')"></i>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+
+
+            <!-- Footer Start Hare -->
+
+
+            <footer class="bg-light text-center text-lg-start">
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+                    © 2022 Copyright:
+                    <a class="text-dark" href="">M.P.S</a>
+                </div>
+                <!-- Copyright -->
+            </footer>
+
+
+
+
+
+        </div> --}}
+
+        <!-- chart html ends hare -->
+
+
+
+        <!-- Music html start hare -->
+
+        {{!-- <div id="divThree" class="text-dark popUpDis shadow">
+
+
+
+            <div class="chart p-2 mt-2">
+                <div class="item_content my-1">
+                    <span class="rounded-0 border p-2" data-deletebox="showchild"><i
+                            class="bi bi-music-note"></i></span>
+                    <input type="text" class="item_content_input px-2 rounded-0 border"
+                        placeholder="https://MusicLink..." id="MusicLink">
+                    <span class="item_content_icon position-absolute p-2 rounded-0 btn border bg-dark text-white"> <i
+                            class="bi bi-plus-circle fs-5" id="copy" onclick="addMusic()"></i> </span>
+
+                </div>
+
+            </div>
+
+            <div class="audio ">
+                <audio controls>
+                    <source type="audio/ogg">
+                </audio>
+            </div>
+
+
+            <div class="addMusicDiv p-3">
+
+            </div>
+
+
+
+        </div> --}}
+
+        <!-- Music html ends hare -->
+
+
+        <!-- HTML ends hare -->
+
+
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/pie.js"></script>
+    <script src="js/music.js"></script>
+
+</body>
+
+</html>
