@@ -1,5 +1,5 @@
 # Password Manager
-Now no need to remember the Fucking Password | Generate Your Own Password with encryption method and save it with  a direct URL #   
+Now no need to remember the Password | Generate Your Own Password with encryption method and save it with  a direct URL #   
 
 ## Installation
 
